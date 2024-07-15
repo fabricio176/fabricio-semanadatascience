@@ -1,4 +1,4 @@
-# Weekend Data Science
+# Week Data Science
 
 ### Steps
 
