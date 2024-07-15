@@ -12,3 +12,5 @@
 2 - Install the library Pandas
 
     pip install pandas"# fabricio-semanadatascience" 
+
+    s
