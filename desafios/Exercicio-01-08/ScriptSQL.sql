@@ -51,6 +51,11 @@ ALTER TABLE diariobordo ADD CONSTRAINT fk_aluno_id
 	FOREIGN KEY (fk_aluno_id) REFERENCES aluno(id)
     ON DELETE CASCADE;
 
+CREATE TABLE professor(
+	id INT PRIMARY KEY AUTO_INCREMENT,
+    nome VARCHAR(55)
+);
+
 CREATE TABLE avaliacao(
 	id INT PRIMARY KEY AUTO_INCREMENT,
     n1 INT,
@@ -60,9 +65,24 @@ CREATE TABLE avaliacao(
     fk_aluno_id INT
 );
 
-ALTER TABLE avaliacao ADD CONSTRAINT fk_aluno_id2
-	FOREIGN KEY (fk_aluno_id) REFERENCES aluno(id)
-    ON DELETE CASCADE;
+ALTER TABLE 
+	avaliacao 
+ADD CONSTRAINT 
+	fk_aluno_id2
+FOREIGN KEY 
+	(fk_aluno_id) 
+REFERENCES aluno(id) ON DELETE CASCADE;
+
+ALTER TABLE avaliacao ADD COLUMN fk_professor_id INT;
+
+ALTER TABLE 
+	avaliacao 
+ADD CONSTRAINT 
+	fk_professor_id
+FOREIGN KEY 
+	(fk_professor_id)
+REFERENCES 
+	professor(id);
 
 ALTER TABLE aluno ADD COLUMN nome VARCHAR(55);
 
@@ -106,6 +126,9 @@ INNER JOIN
 ON 
 	av.fk_aluno_id = a.id;
 
+ALTER TABLE aluno ADD COLUMN tempoestudo INT;
+ALTER TABLE aluno ADD COLUMN rendafamiliar DECIMAL;
 
 
+SELECT last_insert_id();
 
